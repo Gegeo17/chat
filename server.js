@@ -6,6 +6,8 @@ const chatbot = require('./chatbot');
 
 dotenv.config();
 
+console.log('OPENAI_API_KEY:', process.env.OPENAI_API_KEY);
+
 const app = express();
 const server = http.createServer(app);
 const io = socketIo(server);
@@ -30,7 +32,7 @@ io.on('connection', (socket) => {
     });
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3002;
 server.listen(PORT, () => {
     console.log(`Servidor ouvindo na porta ${PORT}`);
 });
